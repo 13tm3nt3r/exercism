@@ -60,7 +60,7 @@ export function limesToCut (wedgesNeeded, limes) {
     } else {
       break
     }
-    
+
     i++        
   }
 
@@ -75,5 +75,10 @@ export function limesToCut (wedgesNeeded, limes) {
  * @returns {string[]} remaining orders after the time is up
  */
 export function remainingOrders(timeLeft, orders) {
-  throw new Error('Please implement the remainingOrders function');
+  while (timeLeft > 0 && orders.length > 0) {
+    timeLeft -= timeToMixJuice(orders[0]) // give me the time it takes to mix always the first juice of the array
+    orders.shift() // remove the bottom of the stack -first item of the array-
+  }
+
+  return orders
 }

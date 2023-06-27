@@ -1,5 +1,4 @@
 // @ts-check
-
 /**
  * Calculates the sum of the two input arrays.
  *
@@ -8,7 +7,7 @@
  * @returns {number} sum of the two arrays
  */
 export function twoSum(array1, array2) {
-  throw new Error('Implement the twoSum function');
+  return (Number(array1.join('')) + Number(array2.join('')))
 }
 
 /**
@@ -17,8 +16,30 @@ export function twoSum(array1, array2) {
  * @param {number} value
  * @returns {boolean} whether the number is a palindrome or not
  */
-export function luckyNumber(value) {
-  throw new Error('Implement the luckyNumber function');
+export function luckyNumber(value) { 
+  // let isPalindrome = true
+
+  // let stringValue = String(value)
+  // let splitted = stringValue.split('')
+  
+  // for (let i=0, j=0; i<splitted.length && isPalindrome; i++, j++) {
+  //   if (splitted[i] !== splitted.reverse()[j]) {
+  //     isPalindrome = false
+  //   }
+  // }
+  // return isPalindrome
+
+  let stringValue = String(value)
+  let splitted = stringValue.split('')
+  let reversed = stringValue.split('').reverse()
+  
+  let splittedString = splitted.join('')
+  let reversedString = reversed.join('')
+
+  let joined = Number(splittedString)
+  let reversedJoined = Number(reversedString)
+
+  return joined === reversedJoined ? true : false
 }
 
 /**
@@ -29,5 +50,11 @@ export function luckyNumber(value) {
  * @returns {string} error message
  */
 export function errorMessage(input) {
-  throw new Error('Implement the errorMessage function');
+  if (isNaN(Number(input))) {
+    return 'Must be a number besides 0'
+  } else if (input === null || input === undefined || input === '') {
+    return 'Required field'
+  } else {
+    return ''
+  }
 }

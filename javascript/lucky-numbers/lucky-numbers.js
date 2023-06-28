@@ -50,11 +50,15 @@ export function luckyNumber(value) {
  * @returns {string} error message
  */
 export function errorMessage(input) {
-  if (isNaN(Number(input))) {
+  if (Boolean(input) === false || input === '') {
+    return 'Required field' 
+  } else if (isNaN(Number(input)) || Number(input) === 0) {
     return 'Must be a number besides 0'
-  } else if (input === null || input === undefined || input === '') {
-    return 'Required field'
   } else {
     return ''
   }
 }
+
+// Si no da ningún input --> o lo ha borrado o no ha escrito nada
+// Si lo borra --> ''
+// Si no pone nada --> null/undefined
